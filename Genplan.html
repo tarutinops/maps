@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Генплан Тарутино</title>
+      <link rel = "stylesheet" href = "leaflet/leaflet.css"/>
+      <script src = "leaflet/leaflet.js"></script>
+   </head>
+
+   <body>
+      <div id = "map" style = "width: 1700; height: 880px"></div>
+      <script>
+         // Creating map options
+         var mapOptions = {
+            center: [220, 0],
+            zoom: 4
+         }
+         
+         // Creating a map object
+         var map = new L.map('map', mapOptions);
+         
+         // Creating a Layer object
+         var layer = new L.TileLayer('{z}/{x}_{y}.jpg', { minZoom: 4,
+maxZoom: 7});
+         
+         // Adding layer to the map
+         map.addLayer(layer);
+      </script>
+   </body>
+   
+</html>
