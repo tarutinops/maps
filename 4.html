@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>4_Тарутине_транспорт</title>
+	<title>Схема вулично-дорожньої мережі, сільского та зовнішнього транспорту</title>
     <meta charset="utf-8" />
     <meta name="apple-mobile-web-app-capable" content="yes" />  
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+	<link rel="stylesheet" href="leaflet.css" />
+	<script src="leaflet.js"></script>
     <style>
         body
         {
@@ -14,7 +15,7 @@
         }
         html, body, #map
         {
-            height: 98%;
+            height: 96%;
             width: 100%;
         }
     </style>
@@ -22,11 +23,10 @@
 <body>
 <br>
  <li style="text-indent:5%">
-	<a href="index.html">Тарутине. Всі схеми</a>
+	<a href="index.html">До переліку схем</a>
 </li>
 <br>
 	<div id="map" style="background-color:White;"/>
-    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
     <script>
       var image = '4';
       var width = 14331;
@@ -55,8 +55,7 @@
 
       L.tileLayer(image + '/{z}-{x}-{y}.jpg', {
         maxZoom: maxLevel, minZoom: minLevel, opacity: 1.0, zIndex: 1, noWrap: true,
-        bounds: bounds,
-        attribution: '<a href="https://github.com/oliverheilig/LeafletPano">LeafletPano</a>'
+        bounds: bounds
 		  }).addTo(map);
 		  
       var zoom = map.getBoundsZoom(bounds);
