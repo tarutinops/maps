@@ -7,6 +7,8 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 	<link rel="stylesheet" href="leaflet.css" />
 	<script src="leaflet.js"></script>
+	<link href='leaflet.fullscreen.css' rel='stylesheet' />
+	<script src='Leaflet.fullscreen.min.js'></script>
     <style>
         body
         {
@@ -19,14 +21,14 @@
             width: 100%;
         }
     </style>
-</head>
-<body>
-<br>
- <li style="text-indent:5%">
-	<a href="index.html">До переліку схем</a>
-</li>
-<br>
-	<div id="map" style="background-color:White;"/>
+	</head>
+	<body>
+	<br>
+	 <li style="text-indent:5%">
+		<a href="index.html">До переліку схем</a>
+	</li>
+	<br> 
+	<div id="map"  style="background-color:White;"/>
     <script>
       var image = '3';
       var width = 14331;
@@ -51,13 +53,19 @@
       var centerLon = (west + east) / 2;
       var bounds = [[south, west], [north, east]];
 
-      var map = new L.Map('map', {maxBounds: bounds});
+      var map = new L.Map('map', {
+		maxBounds: bounds,
+		fullscreenControl: {
+			pseudoFullscreen: false
+		}
+		});
 
       L.tileLayer(image + '/{z}-{x}-{y}.jpg', {
         maxZoom: maxLevel, minZoom: minLevel, opacity: 1.0, zIndex: 1, noWrap: true,
         bounds: bounds
 		  }).addTo(map);
-		  
+		 var marker = new L.Marker([centerLat, centerLon]);
+		 marker.addTo(map);
       var zoom = map.getBoundsZoom(bounds);
       var center = new L.latLng(centerLat, centerLon);
   

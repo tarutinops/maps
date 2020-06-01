@@ -7,6 +7,8 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 	<link rel="stylesheet" href="leaflet.css" />
 	<script src="leaflet.js"></script>
+	<link href='leaflet.fullscreen.css' rel='stylesheet' />
+	<script src='Leaflet.fullscreen.min.js'></script>
     <style>
         body
         {
@@ -51,7 +53,10 @@
       var centerLon = (west + east) / 2;
       var bounds = [[south, west], [north, east]];
 
-      var map = new L.Map('map', {maxBounds: bounds});
+      var map = new L.Map('map', {maxBounds: bounds,
+		fullscreenControl: {
+			pseudoFullscreen: false
+		}});
 
       L.tileLayer(image + '/{z}-{x}-{y}.jpg', {
         maxZoom: maxLevel, minZoom: minLevel, opacity: 1.0, zIndex: 1, noWrap: true,
